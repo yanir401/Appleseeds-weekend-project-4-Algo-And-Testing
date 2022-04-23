@@ -40,4 +40,37 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInt = function (s) {};
+const romanToInt = function (s) {
+  const romanObj = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  const splitStr = s.split("");
+
+  let sum = 0;
+
+  for (let i = 0; i < splitStr.length; i++) {
+    if (romanObj[splitStr[i]] < romanObj[splitStr[i + 1]]) {
+      sum += romanObj[splitStr[i + 1]] - romanObj[splitStr[i]];
+      i++;
+    } else sum += romanObj[splitStr[i]];
+  }
+  return sum;
+};
+
+romanToInt("MCMXCIV");
+
+module.exports = romanToInt;
+
+// I             1
+// V             5
+// X             10
+// L             50
+// C             100
+// D             500
+// M             1000

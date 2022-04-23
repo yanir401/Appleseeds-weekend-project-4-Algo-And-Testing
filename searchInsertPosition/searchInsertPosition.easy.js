@@ -30,4 +30,22 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
  */
-const searchInsert = function (nums, target) {};
+const searchInsert = function (nums, target) {
+  if (
+    nums.length >= 1 &&
+    nums.length <= 104 &&
+    target >= -104 &&
+    target <= 104
+  ) {
+    const index = nums.indexOf(target);
+    if (index === -1) {
+      nums.push(target);
+      nums.sort((a, b) => a - b);
+      return nums.indexOf(target);
+    }
+  }
+  return "Invalid Input";
+};
+searchInsert([1, 3, 5, 6], -5);
+
+module.exports = searchInsert;

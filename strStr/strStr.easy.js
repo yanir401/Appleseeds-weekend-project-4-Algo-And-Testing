@@ -31,4 +31,15 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
  */
 
-const strStr = function (haystack, needle) {};
+const strStr = function (haystack, needle) {
+  const needleCondi = needle.length >= 1 && needle.length <= 104;
+  const haystackCondi = haystack.length >= 1 && haystack.length <= 104;
+  if (needleCondi && haystackCondi)
+    return haystack.toLowerCase().indexOf(needle.toLowerCase());
+  return 0;
+};
+
+console.log(strStr("hello", "4"));
+console.log(strStr("manufacturer", "fa"));
+
+module.exports = strStr;

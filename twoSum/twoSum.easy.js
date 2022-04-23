@@ -26,4 +26,21 @@ Input: nums = [3,3], target = 6
 Output: [0,1]}
  */
 
-const twoSum = function (nums, target) {};
+const twoSum = function (nums, target) {
+  const returnArray = [];
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 1; j < nums.length; j++) {
+      const currentSum = nums[i] + nums[j];
+      if (currentSum === target) {
+        returnArray.push(nums[i], nums[j]);
+        return returnArray;
+      }
+    }
+  }
+  return "Not found";
+};
+
+twoSum([3, 2, 4, 5, 1, 7, 9], 71);
+console.log(twoSum([-100, -90, -50, -30], -80));
+
+module.exports = twoSum;
